@@ -12,13 +12,13 @@ const projects = [
         title: "Custom Chess Simulator GUI",
         description: "Interactive chessboard with custom piece placement and rule-following visualization takes a .json file as input and helps user visualize the moves.",
         tech: ["Python", "Tkinter"],
-        link: "#",
+        link: "https://github.com/CREATE-UofT/CodeClash",
     },
     {
         title: "Tic Tac Toe Bot Arena",
         description: "A GUI-based bot vs bot competition with move logging, test mode, and visualization of moves with interactive GUI.",
         tech: ["Python", "Tkinter"],
-        link: "#",
+        link: "https://github.com/CREATE-UofT/CodeClash",
     },
     {
         title: "HikeOn",

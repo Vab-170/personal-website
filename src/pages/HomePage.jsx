@@ -9,7 +9,7 @@ import profileImage from "../assets/profile.jpeg";
 
 const HomePage = () => {
     const navigate = useNavigate();
-    const [setIsTypingDone] = useState(false);
+    const [, setIsTypingDone] = useState(false);
     const [showScrollUp, setShowScrollUp] = useState(true);
 
     const buttonVariants = {
@@ -36,7 +36,7 @@ const HomePage = () => {
             {/* Hero Section */}
             <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
                 <h1 className="text-4xl font-bold mb-4 gradient-text">
-                    Hi, I'm <span className="text-yellow-300">Vaibhav Gupta</span>
+                    Hi, I&#39;m <span className="text-yellow-300">Vaibhav Gupta</span>
                 </h1>
 
                 <motion.div
@@ -74,7 +74,7 @@ const HomePage = () => {
                         whileHover="hover"
                         whileTap="tap"
                         className="bg-yellow-400 hover:bg-blue-300 text-blue-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg"
-                        onClick={() => window.open("/Resume.pdf", "_blank")}
+                        onClick={() => window.open(`${import.meta.env.BASE_URL}Resume.pdf`, "_blank")}
                     >
                         View Resume
                     </motion.button>
@@ -113,9 +113,9 @@ const HomePage = () => {
                         transition={{ repeat: Infinity, duration: 3 }}
                     />
                     <p className="text-lg max-w-xl text-gray-200">
-                        I'm a Computer Science student at the University of Toronto Scarborough specializing in Software Engineering.
+                        I&#39;m a Computer Science student at the University of Toronto Scarborough specializing in Software Engineering.
                         I love solving real-world problems with AI, Full-Stack Development, and scalable systems.
-                        I'm actively building tools that are practical, clean, and future-facing.
+                        I&#39;m actively building tools that are practical, clean, and future-facing.
                     </p>
                 </div>
             </motion.section>
