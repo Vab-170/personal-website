@@ -10,11 +10,26 @@ import profileImage from "../assets/profile.jpeg";
 const HomePage = () => {
     const navigate = useNavigate();
     const [setIsTypingDone] = useState(false);
+    const [showScrollUp, setShowScrollUp] = useState(true);
 
     const buttonVariants = {
         hover: { scale: 1.05, rotate: -1, transition: { type: "spring", stiffness: 300 } },
         tap: { scale: 0.95, rotate: 1 },
     };
+
+    React.useEffect(() => {
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            setShowScrollUp(false);
+        } else {
+            setShowScrollUp(true);
+        }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
 
     return (
         <div className="bg-gradient-home min-h-screen text-white">
@@ -66,6 +81,20 @@ const HomePage = () => {
                 </div>
             </div>
 
+            {/* Scroll Up Indicator */}
+            {showScrollUp && (
+                <div
+                    className="fixed bottom-6 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center animate-bounce z-50 cursor-pointer"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                    <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center relative">
+                        <div className="w-1 h-2 bg-white mt-2 rounded-full" />
+                    </div>
+                    <span className="mt-2 text-sm text-gray-300">Scroll Up</span>
+                </div>
+            )}
+
+
             {/* About Section */}
             <motion.section
                 initial={{ opacity: 0, y: 50 }}
@@ -101,7 +130,7 @@ const HomePage = () => {
             >
                 <h2 className="text-3xl font-bold text-yellow-300 mb-6">Tech Stack</h2>
                 <div className="flex flex-wrap justify-center gap-4 text-lg text-blue-100">
-                    {["React", "Django", "Python", "C++", "JavaScript", "TailwindCSS", "Git", "OpenAI API", "Cohere"].map((tech, idx) => (
+                    {["React", "Django", "Python", "C", "Java", "JavaScript", "TailwindCSS", "Git"].map((tech, idx) => (
                         <span key={idx} className="bg-blue-700 px-4 py-2 rounded-full shadow-md hover:shadow-yellow-300 hover:scale-105 transition-all duration-300">
                             {tech}
                         </span>
