@@ -74,7 +74,7 @@ const HomePage = () => {
                         whileHover="hover"
                         whileTap="tap"
                         className="bg-yellow-400 hover:bg-blue-300 text-blue-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg"
-                        onClick={() => window.open("/resume.pdf", "_blank")}
+                        onClick={() => window.open("/Resume.pdf", "_blank")}
                     >
                         View Resume
                     </motion.button>

@@ -24,20 +24,20 @@ const projects = [
         title: "HikeOn",
         description: "HikeOn is a powerful tool for organizing outdoor activities with ease and confidence. Perfect for planning hikes, and other group outings, this software combines convenience and safety.",
         tech: ["Java", "Java Swing"],
-        link: "#",
+        link: "https://github.com/X-arshiya-X/HikeOn",
     },
     {
         title: "SafeOStroll",
         description: `SafeOStroll is an app designed to keep you safe in unfamiliar or risky situations. Whether you're walking alone at night or feeling uneasy, it provides real-time AI guidance, suggests safe routes, 
                       and lets you alert trusted contacts in an emergency with a tap.`,
         tech: ["Django", "JavaScript, OpenAI API"],
-        link: "#",
+        link: "https://github.com/ssadras/SafeOStroll",
     },
     {
         title: "QualiD Website and App",
         description: "Designed and developed the official QualiD website and app to reflect its mission of simplifying ESG reporting with AI-driven insights.",
         tech: ["Django", "React", "TailwindCSS, OpenAI API"],
-        link: "#",
+        link: "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-syntax-squad",
     },
 
 ];
