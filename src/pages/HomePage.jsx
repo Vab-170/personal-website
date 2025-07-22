@@ -30,6 +30,7 @@ const HomePage = () => {
     const [, setIsTypingDone] = useState(false);
     const [showScrollUp, setShowScrollUp] = useState(true);
 
+    // Effect to handle scroll up visibility
     React.useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -43,11 +44,13 @@ const HomePage = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Tech stack array
     const techStack = [
         "React", "Django", "Python", "C", 
         "Java", "JavaScript", "TailwindCSS", "Git"
     ];
 
+    // Social links array
     const socialLinks = [
         { icon: FaGithub, href: "https://github.com/Vab-170", label: "GitHub" },
         { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/vab-gupta17/", label: "LinkedIn" },
@@ -61,7 +64,7 @@ const HomePage = () => {
                 <h1 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">
                     Hi, I&#39;m <span className="text-yellow-300">Vaibhav Gupta</span>
                 </h1>
-
+                {/* Typing Animation */}
                 <motion.div
                     className="typing-container mb-6"
                     variants={typingContainerVariants}
@@ -78,11 +81,13 @@ const HomePage = () => {
                     />
                 </motion.div>
 
+                {/* Description for Hero Section */}
                 <p className="text-white text-base sm:text-lg mb-6 max-w-md sm:max-w-lg">
                     Full-Stack Developer passionate about impactful tech. <br />
                     Based in Toronto, ON
                 </p>
 
+                {/* Action Buttons for Projects and Resume */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-xs sm:max-w-md">
                     <AnimatedButton
                         className="bg-yellow-400 hover:bg-blue-300 text-blue-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg w-full sm:w-auto"
@@ -99,7 +104,7 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Scroll Up Indicator */}
+            {/* Scroll Up Indicator (Jumping mouse animation) */}
             {showScrollUp && (
                 <div
                     className="fixed bottom-6 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center animate-bounce z-50 cursor-pointer"
@@ -122,6 +127,8 @@ const HomePage = () => {
                 >
                     About Me
                 </motion.h2>
+
+                { /* Profile Image and Description */}
                 <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 max-w-4xl mx-auto text-center md:text-left px-4">
                     <motion.img
                         initial="hidden"
@@ -131,6 +138,8 @@ const HomePage = () => {
                         className="w-36 h-36 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-yellow-300 shadow-lg"
                         animate={floatingAnimation}
                     />
+
+                    { /* About Me Description Text */}
                     <motion.p
                         variants={typingContainerVariants}
                         initial="hidden"
@@ -163,7 +172,7 @@ const HomePage = () => {
                 </div>
             </AnimatedSection>
 
-            {/* Contact Section */}
+            {/* Let's Connect Section */}
             <AnimatedSection className="py-15 px-4 sm:px-8 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30"></div>
                 
@@ -185,7 +194,6 @@ const HomePage = () => {
                     >
                         I&#39;m always open to discussing new opportunities, collaborating on projects, or just having a chat about technology!
                     </motion.p>
-
                     <div className="flex justify-center">
                         {/* Contact Info */}
                         <div className="grid place-items-center">
