@@ -7,15 +7,28 @@ import { TypeAnimation } from "react-type-animation";
 import "../App.css";
 import profileImage from "../assets/profile.jpeg";
 
+// Import animation variants from AnimationConstants
+import { 
+    typingContainerVariants,
+    floatingAnimation,
+    gradientTextVariants,
+    contactInfoVariants,
+    socialLinksVariants
+} from '../Components/AnimationConstants';
+
+// Import animation components from Animation
+import { 
+    AnimatedSection, 
+    Card3D, 
+    AnimatedButton,
+    TechStackItem,
+    SocialIcon
+} from '../Components/Animation';
+
 const HomePage = () => {
     const navigate = useNavigate();
     const [, setIsTypingDone] = useState(false);
     const [showScrollUp, setShowScrollUp] = useState(true);
-
-    const buttonVariants = {
-        hover: { scale: 1.05, rotate: -1, transition: { type: "spring", stiffness: 300 } },
-        tap: { scale: 0.95, rotate: 1 },
-    };
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -30,6 +43,17 @@ const HomePage = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const techStack = [
+        "React", "Django", "Python", "C", 
+        "Java", "JavaScript", "TailwindCSS", "Git"
+    ];
+
+    const socialLinks = [
+        { icon: FaGithub, href: "https://github.com/Vab-170", label: "GitHub" },
+        { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/vab-gupta17/", label: "LinkedIn" },
+        { icon: FaEnvelope, href: "mailto:vab.gupta@mail.utoronto.ca", label: "Email" }
+    ];
+
     return (
         <div className="bg-gradient-home min-h-screen text-white">
             {/* Hero Section */}
@@ -40,9 +64,9 @@ const HomePage = () => {
 
                 <motion.div
                     className="typing-container mb-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
+                    variants={typingContainerVariants}
+                    initial="hidden"
+                    animate="visible"
                 >
                     <TypeAnimation
                         sequence={["Software Engineer", 1500, "AI Enthusiast", 1500]}
@@ -55,28 +79,23 @@ const HomePage = () => {
                 </motion.div>
 
                 <p className="text-white text-base sm:text-lg mb-6 max-w-md sm:max-w-lg">
-                    Full-Stack Developer passionate about impactful tech.
+                    Full-Stack Developer passionate about impactful tech. <br />
+                    Based in Toronto, ON
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-xs sm:max-w-md">
-                    <motion.button
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
+                    <AnimatedButton
                         className="bg-yellow-400 hover:bg-blue-300 text-blue-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg w-full sm:w-auto"
                         onClick={() => navigate("/projects")}
                     >
                         View Projects
-                    </motion.button>
-                    <motion.button
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
+                    </AnimatedButton>
+                    <AnimatedButton
                         className="bg-yellow-400 hover:bg-blue-300 text-blue-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg w-full sm:w-auto"
                         onClick={() => window.open(`${import.meta.env.BASE_URL}Vab_s_Resume.pdf`, "_blank")}
                     >
                         View Resume
-                    </motion.button>
+                    </AnimatedButton>
                 </div>
             </div>
 
@@ -94,97 +113,122 @@ const HomePage = () => {
             )}
 
             {/* About Section */}
-            <motion.section
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="bg-blue-950 py-16 sm:py-20 px-4 sm:px-8 text-center"
-            >
-                <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-yellow-300">About Me</h2>
+            <AnimatedSection className="bg-blue-950 py-16 sm:py-15 px-4 sm:px-8 text-center">
+                <motion.h2
+                    variants={gradientTextVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    className="text-3xl sm:text-4xl font-bold mb-4 text-center text-yellow-300 bg-clip-text"
+                >
+                    About Me
+                </motion.h2>
                 <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 max-w-4xl mx-auto text-center md:text-left px-4">
                     <motion.img
+                        initial="hidden"
+                        whileInView="visible"
                         src={profileImage}
                         alt="Vaibhav Gupta"
                         className="w-36 h-36 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-yellow-300 shadow-lg"
-                        animate={{ y: [0, -8, 0] }}
-                        transition={{ repeat: Infinity, duration: 3 }}
+                        animate={floatingAnimation}
                     />
-                    <p className="text-base sm:text-lg text-gray-200 max-w-md sm:max-w-xl">
+                    <motion.p
+                        variants={typingContainerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="text-base sm:text-lg text-gray-200 max-w-md sm:max-w-xl"
+                    >
                         I&#39;m a Computer Science student at the University of Toronto Scarborough specializing in Software Engineering.
                         I love solving real-world problems with AI, Full-Stack Development, and scalable systems.
                         I&#39;m actively building tools that are practical, clean, and future-facing.
-                    </p>
+                    </motion.p>
                 </div>
-            </motion.section>
+            </AnimatedSection>
 
             {/* Tech Stack Section */}
-            <motion.section
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="bg-blue-900 py-12 sm:py-16 px-4 text-center"
-            >
-                <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6">Tech Stack</h2>
+            <AnimatedSection className="py-15 px-4 sm:px-8 relative text-center">
+                <motion.h2
+                    variants={gradientTextVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    className="text-3xl sm:text-4xl font-bold mb-4 text-center text-orange-400 bg-clip-text"
+                >
+                    Tech Stack
+                </motion.h2>
                 <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-base sm:text-lg text-blue-100 max-w-lg mx-auto px-2">
-                    {[
-                        "React",
-                        "Django",
-                        "Python",
-                        "C",
-                        "Java",
-                        "JavaScript",
-                        "TailwindCSS",
-                        "Git",
-                    ].map((tech, idx) => (
-                        <span
-                            key={idx}
-                            className="bg-blue-700 px-3 sm:px-4 py-1.5 rounded-full shadow-md hover:shadow-yellow-300 hover:scale-105 transition-all duration-300 cursor-default"
-                        >
+                    {techStack.map((tech, idx) => (
+                        <TechStackItem key={idx} index={idx}>
                             {tech}
-                        </span>
+                        </TechStackItem>
                     ))}
                 </div>
-            </motion.section>
+            </AnimatedSection>
+
+            {/* Contact Section */}
+            <AnimatedSection className="py-15 px-4 sm:px-8 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30"></div>
+                
+                <div className="relative z-10 max-w-6xl mx-auto">
+                    <motion.h2 
+                        variants={gradientTextVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="text-3xl sm:text-4xl font-bold mb-4 text-center text-green-400 bg-clip-text"
+                    >
+                        Let&#39;s Connect
+                    </motion.h2>
+                    
+                    <motion.p
+                        variants={contactInfoVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="text-center text-blue-100 text-lg mb-12 max-w-2xl mx-auto"
+                    >
+                        I&#39;m always open to discussing new opportunities, collaborating on projects, or just having a chat about technology!
+                    </motion.p>
+
+                    <div className="flex justify-center">
+                        {/* Contact Info */}
+                        <div className="grid place-items-center">
+                            <Card3D>
+                                <div className="bg-gradient-to-br from-green-900/40 to-blue-900/40 rounded-2xl p-8 border border-green-400/20">
+                                    <h3 className="text-xl font-semibold text-green-300 text-center mb-4">Current Status</h3>
+                                    <div className="flex items-center space-x-3 mb-4">
+                                        <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                        <span className="text-green-200 font-medium">Open to opportunities</span>
+                                    </div>
+                                    <p className="text-blue-100 text-sm">
+                                        Currently seeking Fall 2025 internships and co-op positions.
+                                    </p>
+                                </div>
+                            </Card3D>
+                        </div>
+                    </div>
+
+                    {/* Social Links */}
+                    <motion.div
+                        variants={socialLinksVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="mt-12 text-center"
+                    >
+                        <p className="text-blue-200 mb-6">Connect with me on social media</p>
+                        <div className="flex justify-center space-x-6">
+                            {socialLinks.map(({ icon, href, label }) => (
+                                <SocialIcon 
+                                    key={label}
+                                    icon={icon}
+                                    href={href}
+                                    label={label}
+                                />
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+            </AnimatedSection>
 
             {/* Footer */}
             <footer className="bg-blue-950 py-6 text-center text-sm sm:text-base text-gray-400">
                 <p>© 2025 Vaibhav Gupta. All rights reserved.</p>
-                <div className="flex justify-center space-x-4 sm:space-x-6 mt-3">
-                    <a
-                        href="https://github.com/Vab-170"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-800 hover:bg-blue-700 p-2 sm:p-3 rounded-full transition-colors"
-                        aria-label="GitHub"
-                        title="GitHub"
-                    >
-                        <FaGithub className="text-white" size={20} />
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/in/vab-gupta17/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-800 hover:bg-blue-700 p-2 sm:p-3 rounded-full transition-colors"
-                        aria-label="LinkedIn"
-                        title="LinkedIn"
-                    >
-                        <FaLinkedinIn className="text-white" size={20} />
-                    </a>
-
-                    <a
-                        href="mailto:vab.gupta@mail.utoronto.ca"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-800 hover:bg-blue-700 p-2 sm:p-3 rounded-full transition-colors"
-                        aria-label="Email"
-                        title="Email"
-                    >
-                        <FaEnvelope className="text-white" size={20} />
-                    </a>
-                </div>
             </footer>
         </div>
     );

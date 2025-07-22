@@ -201,7 +201,7 @@ const HomePage = () => {
                         transition={{ duration: 0.6 }}
                         className="text-3xl sm:text-4xl font-bold mb-4 text-center bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent"
                     >
-                        Let's Connect
+                        Let&#39;s Connect
                     </motion.h2>
                     
                     <motion.p
@@ -210,7 +210,7 @@ const HomePage = () => {
                         transition={{ delay: 0.2, duration: 0.6 }}
                         className="text-center text-blue-100 text-lg mb-12 max-w-2xl mx-auto"
                     >
-                        I'm always open to discussing new opportunities, collaborating on projects, or just having a chat about technology!
+                        I&#39;m always open to discussing new opportunities, collaborating on projects, or just having a chat about technology!
                     </motion.p>
 
                     <div className="grid lg:grid-cols-2 gap-12 items-start">
