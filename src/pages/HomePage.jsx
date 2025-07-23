@@ -46,8 +46,8 @@ const HomePage = () => {
 
     // Tech stack array
     const techStack = [
-        "React", "Django", "Python", "C", 
-        "Java", "JavaScript", "TailwindCSS", "Git"
+        "Python", "C", "Java", "React", "Django", 
+        "JavaScript", "TailwindCSS", "Git", "Docker"
     ];
 
     // Social links array
