@@ -97,9 +97,9 @@ const HomePage = () => {
                     </AnimatedButton>
                     <AnimatedButton
                         className="bg-yellow-400 hover:bg-blue-300 text-blue-900 py-3 px-8 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg w-full sm:w-auto"
-                        onClick={() => window.open(`${import.meta.env.BASE_URL}Vab_s_Resume.pdf`, "_blank")}
+                        onClick={() => window.open(`${import.meta.env.BASE_URL}Vab_s_CV.pdf`, "_blank")}
                     >
-                        View Resume
+                        View CV
                     </AnimatedButton>
                 </div>
             </div>
