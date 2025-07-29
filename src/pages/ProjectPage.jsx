@@ -17,6 +17,13 @@ const projects = [
         linkType: "live"
     },
     {
+        title: "Stock Market Prediction Platform",
+        description: "Developed a comprehensive full-stack platform featuring real-time market data visualization and ML-powered stock predictions. Implemented sophisticated multi-tier caching system that reduced API response times by 100x (from 5s to 50ms). Built responsive frontend with interactive dashboards and deployed using modern DevOps practices.",
+        tech: ["Next.js 14", "TypeScript", "FastAPI", "Python", "Machine Learning", "Scikit-learn", "Chart.js", "Vercel"],
+        link: "https://stockadvisor-q05sb8wd2-vab-170s-projects.vercel.app/",
+        linkType: "live"
+    },
+    {
         title: "QualiD App and Website",
         description: "Built a comprehensive web platform for QualiD, a startup focused on simplifying ESG (Environmental, Social, and Governance) reporting through centralized data management and AI integration. Collaborated with a cross-functional team following Agile methodologies.",
         tech: ["Django", "TailwindCSS", "JavaScript", "PostgreSQL", "WebRTC", "OpenAI API"],
