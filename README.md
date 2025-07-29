@@ -120,9 +120,7 @@ npm run deploy
 ```
 personal-website/
 ├── public/
-│   ├── Resume.pdf
-│   ├── Vab_s_CV.pdf
-│   └── Vab_s_Resume.pdf
+│   └── Vab_s_CV.pdf
 ├── src/
 │   ├── assets/
 │   │   └── profile.jpeg
@@ -131,11 +129,9 @@ personal-website/
 │   │   └── AnimationConstants.jsx
 │   ├── pages/
 │   │   ├── HomePage.jsx
-│   │   ├── ProjectPage.jsx
-│   │   └── holder.jsx
+│   │   └── ProjectPage.jsx
 │   ├── App.css
 │   ├── App.jsx
-│   ├── config.js
 │   ├── index.css
 │   └── main.jsx
 ├── eslint.config.js
