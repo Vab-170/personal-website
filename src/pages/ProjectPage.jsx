@@ -59,13 +59,6 @@ const projects = [
         linkType: "github"
     },
     {
-        title: "RAID Storage Simulator",
-        description: "Implemented a sophisticated RAID 4-like distributed storage system in C, demonstrating fault-tolerant storage architectures with low-level block operations and comprehensive fault tolerance mechanisms.",
-        tech: ["C", "Unix/Linux system calls", "Inter-process communication"],
-        link: "https://github.com/Vab-170/RAID-Storage-Simulator",
-        linkType: "github"
-    },
-    {
         title: "Dr. Mario Game Implementation",
         description: "Developed a fully functional Dr. Mario game in MIPS Assembly language with complex game mechanics including gravity simulation, collision detection, and match-three puzzle logic using memory-mapped display.",
         tech: ["MIPS Assembly", "Staurn coding environment"],
@@ -73,10 +66,17 @@ const projects = [
         linkType: "github"
     },
     {
+        title: "RAID Storage Simulator",
+        description: "Implemented a sophisticated RAID 4-like distributed storage system in C, demonstrating fault-tolerant storage architectures with low-level block operations and comprehensive fault tolerance mechanisms.",
+        tech: ["C", "Unix/Linux system calls", "Inter-process communication"],
+        link: null,
+        linkType: "unavailable"
+    },
+    {
         title: "Turtle Graphics Engine",
         description: "Built a comprehensive turtle graphics engine in C inspired by Logo programming language, implementing custom linked list data structures and modular command parsing system with comprehensive testing.",
         tech: ["C", "Custom data structures", "Graphics libraries"],
-        link: null, // No link available
+        link: null,
         linkType: "unavailable"
     },
 ];
