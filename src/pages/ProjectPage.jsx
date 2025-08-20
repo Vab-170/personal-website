@@ -21,7 +21,7 @@ const projects = [
         description: "Developed a comprehensive full-stack platform featuring real-time market data visualization and ML-powered stock predictions. Implemented sophisticated multi-tier caching system that reduced API response times by 100x (from 5s to 50ms). Built responsive frontend with interactive dashboards and deployed using modern DevOps practices.",
         tech: ["Next.js 14", "TypeScript", "FastAPI", "Python", "Machine Learning", "Scikit-learn", "Chart.js", "Vercel"],
         // link: "https://stockadvisor-q05sb8wd2-vab-170s-projects.vercel.app/",
-        link: "https://github.com/Vab-170/RAID-Storage-Simulator",
+        link: "https://github.com/Vab-170/StockAdvisor",
         linkType: "github"
     },
     {
