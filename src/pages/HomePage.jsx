@@ -205,7 +205,7 @@ const HomePage = () => {
                                         <span className="text-green-200 font-medium">Open to opportunities</span>
                                     </div>
                                     <p className="text-blue-100 text-sm">
-                                        Currently seeking Summer 2026 internships and co-op positions.
+                                        Currently seeking 2026 internships and co-op positions.
                                     </p>
                                 </div>
                             </Card3D>
