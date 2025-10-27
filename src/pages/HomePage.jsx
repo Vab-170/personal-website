@@ -5,7 +5,7 @@ import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 
 import "../App.css";
-import profileImage from "../assets/Profile.jpeg";
+import profileImage from "../assets/profile.jpeg";
 
 // Import animation variants from AnimationConstants
 import { 
