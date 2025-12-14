@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import PropTypes from "prop-types";
 
