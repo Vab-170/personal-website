@@ -1,144 +1,109 @@
 import React from "react";
-import "../App.css";
+import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+import { PageLayout } from "../Components/BackgroundEffects";
+import { projects, personalInfo } from "../data/portfolioData";
 
-const projects = [
-    {
-        title: "C.R.E.A.T.E. Club Website",
-        description: "Designed and developed comprehensive club website serving as central hub for 100+ members and university community. Implemented modular component architecture for easy content management and future scalability.",
-        tech: ["React", "TailwindCSS", "Responsive Design"],
-        link: "http://www.create.utsc.utoronto.ca/",
-        linkType: "live"
-    },
-    {
-        title: "Code Clash Prediction Platform",
-        description: "Designed and architected a sophisticated full-stack prediction platform for live hackathon events, enabling real-time user engagement and competition tracking. Successfully managed platform during live event with 25 participants.",
-        tech: ["Django", "React/JSX", "WebSocket", "PostgreSQL", "RESTful APIs"],
-        link: "https://create.utsc.utoronto.ca/high-risk-probability/",
-        linkType: "live"
-    },
-    {
-        title: "Stock Market Prediction Platform",
-        description: "Developed a comprehensive full-stack platform featuring real-time market data visualization and ML-powered stock predictions. Implemented sophisticated multi-tier caching system that reduced API response times by 100x (from 5s to 50ms). Built responsive frontend with interactive dashboards and deployed using modern DevOps practices.",
-        tech: ["Next.js 14", "TypeScript", "FastAPI", "Python", "Machine Learning", "Scikit-learn", "Chart.js", "Vercel"],
-        // link: "https://stockadvisor-q05sb8wd2-vab-170s-projects.vercel.app/",
-        link: "https://github.com/Vab-170/StockAdvisor",
-        linkType: "github"
-    },
-    {
-        title: "QualiD App and Website",
-        description: "Built a comprehensive web platform for QualiD, a startup focused on simplifying ESG (Environmental, Social, and Governance) reporting through centralized data management and AI integration. Collaborated with a cross-functional team following Agile methodologies.",
-        tech: ["Django", "TailwindCSS", "JavaScript", "PostgreSQL", "WebRTC", "OpenAI API"],
-        link: "https://github.com/UTSC-CSCC01-Software-Engineering-I/term-group-project-syntax-squad",
-        linkType: "github"
-    },
-    {
-        title: "HikeOn Event Planning Application",
-        description: "Designed and developed a comprehensive event planning and safety guide application to assist users in organizing and navigating outdoor recreational activities. Applied object-oriented design principles and implemented real-time weather integration.",
-        tech: ["Java", "Java Swing", "WebRTC", "OpenAI API", "Google Maps API"],
-        link: "https://github.com/X-arshiya-X/HikeOn",
-        linkType: "github"
-    },
-    {
-        title: "SafeOStroll - AI Safety Application",
-        description: "Developed an innovative AI-powered safety application in 36 hours designed to monitor user emotional states in real-time. Implemented emotion recognition algorithms and integrated HERE Maps API for emergency routing.",
-        tech: ["Python", "Django", "React", "PostgreSQL", "WebRTC", "HERE Maps API", "NLP libraries"],
-        link: "https://github.com/ssadras/SafeOStroll",
-        linkType: "github"
-    },
-    {
-        title: "Chess Game Visualization System",
-        description: "Developed interactive chess game simulator with JSON-based game replay functionality and clean GUI interface. Implemented dynamic piece rendering and move log display system.",
-        tech: ["Python", "Tkinter", "JSON", "Object-Oriented Design"],
-        link: "https://github.com/CREATE-UofT/CodeClash",
-        linkType: "github"
-    },
-    {
-        title: "Tic-Tac-Toe Game System",
-        description: "Created extensible Tic-Tac-Toe game supporting multiple game modes and customizable board sizes beyond traditional 3x3. Designed modular architecture supporting various gameplay modes.",
-        tech: ["Python", "Tkinter", "Game AI Algorithms"],
-        link: "https://github.com/CREATE-UofT/CodeClash",
-        linkType: "github"
-    },
-    {
-        title: "Dr. Mario Game Implementation",
-        description: "Developed a fully functional Dr. Mario game in MIPS Assembly language with complex game mechanics including gravity simulation, collision detection, and match-three puzzle logic using memory-mapped display.",
-        tech: ["MIPS Assembly", "Staurn coding environment"],
-        link: "https://github.com/Vab-170/Dr-Mario-Game",
-        linkType: "github"
-    },
-    {
-        title: "RAID Storage Simulator",
-        description: "Implemented a sophisticated RAID 4-like distributed storage system in C, demonstrating fault-tolerant storage architectures with low-level block operations and comprehensive fault tolerance mechanisms.",
-        tech: ["C", "Unix/Linux system calls", "Inter-process communication"],
-        link: null,
-        linkType: "unavailable"
-    },
-    {
-        title: "Turtle Graphics Engine",
-        description: "Built a comprehensive turtle graphics engine in C inspired by Logo programming language, implementing custom linked list data structures and modular command parsing system with comprehensive testing.",
-        tech: ["C", "Custom data structures", "Graphics libraries"],
-        link: null,
-        linkType: "unavailable"
-    },
-];
-
-const ProjectsPage = () => {
-    const renderProjectButton = (project) => {
+const ProjectCard = ({ project, index }) => {
+    const renderProjectButton = () => {
         if (!project.link || project.linkType === "unavailable") {
             return (
-                <span className="inline-block bg-gray-500 text-gray-300 font-semibold px-5 py-2 rounded-full cursor-not-allowed shadow-lg">
+                <span className="inline-flex items-center gap-2 bg-zinc-700 text-gray-400 font-semibold px-5 py-2 rounded-full cursor-not-allowed">
                     Code Unavailable
                 </span>
             );
         }
 
-        const buttonText = project.linkType === "live" ? "View Live Site" : "View Code";
+        const isLive = project.linkType === "live";
         
         return (
-            <a
+            <motion.a
                 href={project.link}
-                className="inline-block bg-yellow-400 text-blue-900 font-semibold px-5 py-2 rounded-full hover:bg-blue-300 transition-all duration-300 shadow-lg"
+                className="inline-flex items-center gap-2 bg-linear-to-r from-yellow-400 to-amber-500 text-zinc-900 font-bold px-5 py-2 rounded-full shadow-lg shadow-yellow-500/30"
                 target="_blank"
                 rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             >
-                {buttonText}
-            </a>
+                {isLive ? <ExternalLink className="w-4 h-4" /> : <Github className="w-4 h-4" />}
+                {isLive ? "View Live Site" : "View Code"}
+            </motion.a>
         );
     };
 
     return (
-        <div className="bg-gradient-home min-h-screen py-16 px-4 text-white">
-            <h2 className="text-4xl font-bold text-yellow-300 text-center mb-12">
-                Projects
-            </h2>
+        <motion.div
+            className="bg-zinc-900/60 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/30 shadow-lg shadow-yellow-500/10 flex flex-col"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            whileHover={{
+                scale: 1.02,
+                borderColor: "rgba(250, 204, 21, 0.6)",
+                boxShadow: "0 0 30px rgba(250, 204, 21, 0.2)",
+            }}
+        >
+            <h3 className="text-xl font-bold text-yellow-400 mb-3">
+                {project.title}
+            </h3>
+            <p className="text-gray-300 mb-4 grow text-sm leading-relaxed">{project.description}</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-                {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        className="bg-blue-800 rounded-3xl p-6 shadow-2xl hover:scale-105 transition-transform duration-300"
+            <div className="flex flex-wrap gap-2 mb-6">
+                {project.tech.map((tech, idx) => (
+                    <span
+                        key={idx}
+                        className="bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-full text-xs border border-yellow-500/30"
                     >
-                        <h3 className="text-2xl font-bold text-yellow-300 mb-3">
-                            {project.title}
-                        </h3>
-                        <p className="text-blue-100 mb-4">{project.description}</p>
-
-                        <div className="flex flex-wrap gap-2 mb-6">
-                            {project.tech.map((tech, idx) => (
-                                <span
-                                    key={idx}
-                                    className="bg-blue-600 text-blue-100 px-3 py-1 rounded-full text-sm hover:bg-yellow-400 hover:text-blue-900 transition-colors"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
-
-                        {renderProjectButton(project)}
-                    </div>
+                        {tech}
+                    </span>
                 ))}
             </div>
-        </div>
+
+            {renderProjectButton()}
+        </motion.div>
+    );
+};
+
+// 
+ProjectCard.propTypes = {
+    project: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+        link: PropTypes.string,
+        linkType: PropTypes.oneOf(["live", "github", "unavailable"]).isRequired,
+    }).isRequired,
+    index: PropTypes.number.isRequired,
+};
+
+// Projects Page Component
+const ProjectsPage = () => {
+    return (
+        <PageLayout showParticles={false}>
+            <div className="py-20 px-6">
+                <motion.h2
+                    className="text-5xl font-bold text-center mb-16 bg-linear-to-r from-yellow-300 to-amber-500 bg-clip-text text-transparent"
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    Projects
+                </motion.h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    {projects.map((project, index) => (
+                        <ProjectCard key={index} project={project} index={index} />
+                    ))}
+                </div>
+            </div>
+
+            {/* Footer */}
+            <footer className="relative py-8 px-6 border-t border-yellow-500/50 backdrop-blur-sm">
+                <p className="text-center text-gray-400">© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
+            </footer>
+        </PageLayout>
     );
 };
 

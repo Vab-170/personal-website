@@ -10,6 +10,17 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
+    // Disable source maps in production (harder to debug/reverse engineer)
+    sourcemap: false,
+    // Minify code
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,  // Remove console.log statements
+        drop_debugger: true, // Remove debugger statements
+      },
+      mangle: true, // Mangle variable names
+    },
     // Optimize for production
     rollupOptions: {
       output: {
