@@ -66,7 +66,6 @@ const ProjectCard = ({ project, index }) => {
     );
 };
 
-// 
 ProjectCard.propTypes = {
     project: PropTypes.shape({
         title: PropTypes.string.isRequired,
