@@ -18,16 +18,23 @@ export default defineConfig({
       compress: {
         drop_console: true,  // Remove console.log statements
         drop_debugger: true, // Remove debugger statements
+        passes: 2,           // Multiple compression passes
       },
       mangle: true, // Mangle variable names
     },
+    // Optimize chunk size
+    chunkSizeWarningLimit: 500,
+    // CSS optimization
+    cssCodeSplit: true,
+    cssMinify: true,
     // Optimize for production
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          motion: ['framer-motion'],
-          icons: ['react-icons'],
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['react-router-dom'],
+          'motion': ['framer-motion'],
+          'icons': ['react-icons', 'lucide-react'],
         }
       }
     }

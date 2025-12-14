@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import PropTypes from "prop-types";
 
-// Generate particles data
-const generateParticles = (count = 30) =>
+// Reduced counts for better performance
+const generateParticles = (count = 20) =>
   Array.from({ length: count }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
@@ -12,8 +12,8 @@ const generateParticles = (count = 30) =>
     duration: Math.random() * 20 + 10,
   }));
 
-// Generate geometric shapes data
-const generateGeometricShapes = (count = 15) =>
+// Reduced geometric shapes
+const generateGeometricShapes = (count = 12) =>
   Array.from({ length: count }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
@@ -24,12 +24,12 @@ const generateGeometricShapes = (count = 15) =>
     shape: ["square", "circle", "triangle"][Math.floor(Math.random() * 3)],
   }));
 
-// Generate grid dots data
-const generateGridDots = (count = 100) =>
+// Reduced grid dots
+const generateGridDots = (count = 64) =>
   Array.from({ length: count }, (_, i) => ({
     id: i,
-    x: (i % 10) * 10,
-    y: Math.floor(i / 10) * 10,
+    x: (i % 8) * 12 + 6,
+    y: Math.floor(i / 8) * 12 + 6,
   }));
 
 // Progress Bar Component
@@ -45,8 +45,8 @@ export const ProgressBar = () => {
   );
 };
 
-// Grid Dots Background
-export const GridDotsBackground = ({ dotCount = 100, opacity = 0.6 }) => {
+// Grid Dots Background - CSS animations instead of JS
+export const GridDotsBackground = ({ dotCount = 36, opacity = 0.6 }) => {
   const gridDots = useMemo(() => generateGridDots(dotCount), [dotCount]);
 
   return (
@@ -55,22 +55,26 @@ export const GridDotsBackground = ({ dotCount = 100, opacity = 0.6 }) => {
       style={{ opacity }}
     >
       <svg className="w-full h-full">
+        <style>
+          {`
+            @keyframes pulse {
+              0%, 100% { opacity: 0.3; transform: scale(1); }
+              50% { opacity: 0.8; transform: scale(1.5); }
+            }
+            .grid-dot { animation: pulse 3s ease-in-out infinite; }
+          `}
+        </style>
         {gridDots.map((dot) => (
-          <motion.circle
+          <circle
             key={dot.id}
             cx={`${dot.x}%`}
             cy={`${dot.y}%`}
-            r="3"
+            r="2"
             fill="#fbbf24"
-            style={{ filter: "drop-shadow(0 0 4px #fbbf24)" }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [1, 2, 1],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              delay: dot.id * 0.03,
+            className="grid-dot"
+            style={{ 
+              filter: "drop-shadow(0 0 3px #fbbf24)",
+              animationDelay: `${dot.id * 0.1}s`
             }}
           />
         ))}
@@ -175,16 +179,33 @@ ParticlesBackground.propTypes = {
   particleCount: PropTypes.number,
 };
 
-// Mouse Follower Gradient
+// Mouse Follower Gradient - Throttled updates
 export const MouseFollower = ({ size = 600, intensity = 50 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    let rafId;
+    let lastX = 0, lastY = 0;
+    
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      // Throttle with requestAnimationFrame
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        // Only update if moved significantly
+        if (Math.abs(e.clientX - lastX) > 5 || Math.abs(e.clientY - lastY) > 5) {
+          lastX = e.clientX;
+          lastY = e.clientY;
+          setMousePosition({ x: e.clientX, y: e.clientY });
+        }
+        rafId = null;
+      });
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -213,16 +234,16 @@ MouseFollower.propTypes = {
   intensity: PropTypes.number,
 };
 
-// Combined Background Effects Component
+// Combined Background Effects Component - Reduced defaults
 export const BackgroundEffects = ({
   showProgressBar = true,
   showGridDots = true,
   showGeometricShapes = true,
   showParticles = true,
   showMouseFollower = true,
-  gridDotCount = 100,
-  shapeCount = 15,
-  particleCount = 30,
+  gridDotCount = 64,
+  shapeCount = 12,
+  particleCount = 20,
   mouseFollowerSize = 600,
 }) => {
   return (

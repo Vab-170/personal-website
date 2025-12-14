@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 
 ## 🚀 Live Demo
 
-[View Live Website](https://vab-170.github.io/personal-website/)
+[View Live Website](https://vabgupta.pages.dev)
 
 ## 📋 Features
 
@@ -16,16 +16,26 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 - **Projects Showcase** - Dedicated section for project portfolio
 - **Contact Integration** - Direct links to social media and email
 - **Resume/CV Download** - Easy access to downloadable resume
+- **Security Hardened** - Comprehensive security headers (CSP, HSTS, etc.)
+
+## 🔒 Security Features
+
+- **Content Security Policy (CSP)** - Prevents XSS and data injection attacks
+- **X-Content-Type-Options** - Prevents MIME type sniffing
+- **X-Frame-Options** - Protects against clickjacking
+- **Referrer-Policy** - Controls referrer information
+- **Permissions-Policy** - Restricts browser features
+- **Subresource Integrity (SRI)** - Verifies external resource integrity
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19, JavaScript (ES6+)
 - **Styling**: TailwindCSS 4.x
 - **Animations**: Framer Motion, React Type Animation
-- **Icons**: React Icons, FontAwesome
+- **Icons**: React Icons, Lucide React
 - **Build Tool**: Vite 6.x
 - **Code Quality**: ESLint
-- **Deployment**: GitHub Pages (automated)
+- **Deployment**: Cloudflare Pages (automated)
 
 ## 🏃‍♂️ Quick Start
 
@@ -63,41 +73,30 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 - `npm run preview` - Preview production build locally
 - `npm run lint` - Run ESLint for code quality checks
 - `npm run lint:fix` - Automatically fix ESLint issues
-- `npm run deploy` - Manual deploy to GitHub Pages (backup method)
 
 ## 🚀 Deployment
 
-### Automated GitHub Pages Deployment
+### Cloudflare Pages (Automated)
 
-The project uses **GitHub Actions** for automatic deployment to GitHub Pages. Every push to the `main` branch automatically triggers a build and deployment.
+The project uses **Cloudflare Pages** for automatic deployment. Every push to the `main` branch automatically triggers a build and deployment.
 
 **How it works:**
 - ✅ **Push to main branch** → Automatic deployment
 - ✅ **No manual commands** needed
 - ✅ **Build errors** are caught automatically
 - ✅ **Always up-to-date** with your latest code
+- ✅ **Global CDN** with edge caching
+- ✅ **Custom security headers** via `_headers` file
 
-**Deployment status:**
-Check the "Actions" tab in your GitHub repository to see deployment status and logs.
-
-### Manual Deployment (Backup)
-
-If needed, you can still deploy manually:
-
-```bash
-npm run deploy
-```
-
-**First-time setup (already configured):**
-1. GitHub Pages is enabled in repository settings
-2. GitHub Actions workflow is configured
-3. Automatic deployment on every push to main
+**Build Settings:**
+- **Framework**: Vite
+- **Build command**: `npm run build`
+- **Output directory**: `dist`
 
 **Note:** If you fork this repository, you'll need to:
-1. Go to your repository **Settings** → **Pages**
-2. Set **Source** to "Deploy from a branch"
-3. Select **Branch**: `gh-pages` and **Folder**: `/ (root)`
-4. GitHub Actions will handle the rest automatically
+1. Create a Cloudflare Pages project
+2. Connect your GitHub repository
+3. Configure build settings as above
 
 ### Development Workflow
 
@@ -120,13 +119,17 @@ npm run deploy
 ```
 personal-website/
 ├── public/
-│   └── Vab_s_CV.pdf
+│   ├── Vab_s_CV.pdf
+│   ├── 404.html
+│   └── _headers          # Cloudflare security headers
 ├── src/
 │   ├── assets/
 │   │   └── profile.jpeg
 │   ├── Components/
-│   │   ├── Animation.jsx
-│   │   └── AnimationConstants.jsx
+│   │   ├── BackgroundEffects.jsx
+│   │   └── UIComponents.jsx
+│   ├── data/
+│   │   └── portfolioData.js  # Centralized portfolio data
 │   ├── pages/
 │   │   ├── HomePage.jsx
 │   │   └── ProjectPage.jsx
@@ -145,16 +148,19 @@ personal-website/
 
 ### Update Personal Information
 
+All portfolio data is centralized in `src/data/portfolioData.js`:
+
+1. **Personal Info**: Name, location, roles, about text
+2. **Social Links**: GitHub, LinkedIn, Email
+3. **Stats**: Projects count, technologies, experience
+4. **Tech Stack**: Skills organized by category (Languages, Frontend, Backend, DevOps, Workflow)
+5. **Projects**: Portfolio projects with descriptions and links
+
+### Update Assets
+
 1. **Profile Image**: Replace `src/assets/profile.jpeg`
-2. **Resume/CV**: Update files in `public/` directory
-3. **Contact Links**: Modify `socialLinks` array in `HomePage.jsx`
-4. **Tech Stack**: Update `techStack` array in `HomePage.jsx`
-
-### Modify Content
-
-- **About Section**: Edit the description in `HomePage.jsx`
-- **Projects**: Add your projects in `ProjectPage.jsx`
-- **Styling**: Customize colors and animations in component files
+2. **Resume/CV**: Update `public/Vab_s_CV.pdf`
+3. **Favicon**: Replace `public/favicon.ico`
 
 ### Configuration Files
 
@@ -188,15 +194,20 @@ The website uses a custom gradient theme with:
    ```
 
 2. **Deployment Issues**
-   - Ensure `base: '/personal-website/'` in `vite.config.js` for GitHub Pages
-   - Check that all assets are in the `public` directory
-   - Check GitHub Actions logs if automated deployment fails
+   - Check Cloudflare Pages dashboard for build logs
+   - Ensure all assets are in the `public` directory
+   - Verify `vite.config.js` has `base: '/'`
 
 3. **Development Server Issues**
    ```bash
    # Check if port 5173 is available
    npm run dev -- --port 3000
    ```
+
+4. **Security Headers Not Working**
+   - Ensure `public/_headers` file exists
+   - Check Cloudflare Pages deployment logs
+   - Headers only work in production (not local dev)
 
 ## 🤝 Contributing
 
