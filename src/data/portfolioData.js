@@ -1,10 +1,10 @@
 import { 
   SiPython, SiReact, SiDjango, SiJavascript, SiTailwindcss, SiDocker, SiGit, SiC,
   SiNodedotjs, SiSpringboot, SiPostgresql, SiHtml5, SiCss3,
-  SiPostman, SiJira, SiConfluence, SiLinux, SiGithub, SiSalesforce, SiOpenai
+  SiPostman, SiJira, SiConfluence, SiLinux, SiGithub, SiSalesforce,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
-import { Code2, Zap, Award, Github, Linkedin, Mail, Monitor, Code, FileCode, Bed } from "lucide-react";
+import { Code2, Zap, Award, Github, Linkedin, Mail, Bed } from "lucide-react";
 
 // ============================================
 // PERSONAL INFO - Edit your details here
@@ -12,7 +12,7 @@ import { Code2, Zap, Award, Github, Linkedin, Mail, Monitor, Code, FileCode, Bed
 export const personalInfo = {
   name: "Vaibhav Gupta",
   location: "Toronto, ON 🇨🇦",
-  roles: ["Cyber Security Enthusiast", "AI Tinkerer", "Full-Stack Developer"],
+  roles: ["Full-Stack Developer", "Cyber Security Enthusiast", "AI Tinkerer"],
   tagline: "Building impactful solutions with cutting-edge technology",
   about: `I am a Computer Science student at the University of Toronto Scarborough 
     specializing in Software Engineering. I enjoy solving real world problems using 
@@ -70,19 +70,12 @@ export const techStack = [
   { name: "Docker", category: "DevOps", icon: SiDocker, color: "#2496ED" },
   { name: "Linux", category: "DevOps", icon: SiLinux, color: "#FCC624" },
   { name: "GitHub", category: "DevOps", icon: SiGithub, color: "#FFFFFF" },
+  { name: "Postman", category: "DevOps", icon: SiPostman, color: "#FF6C37" },
   
-  // === IDEs ===
-  { name: "VS Code", category: "IDEs", icon: Monitor, color: "#007ACC" },
-  { name: "IntelliJ", category: "IDEs", icon: Code, color: "#000000" },
-  { name: "Eclipse", category: "IDEs", icon: FileCode, color: "#2C2255" },
-  
-  // === Project Management & Tools ===
-  { name: "JIRA", category: "Project Mgmt", icon: SiJira, color: "#0052CC" },
-  { name: "Confluence", category: "Project Mgmt", icon: SiConfluence, color: "#172B4D" },
-  { name: "Postman", category: "Tools", icon: SiPostman, color: "#FF6C37" },
-  
-  // === Platforms & APIs ===
-  { name: "Salesforce", category: "Platforms", icon: SiSalesforce, color: "#00A1E0" },
+  // === Workflow ===
+  { name: "JIRA", category: "Workflow", icon: SiJira, color: "#0052CC" },
+  { name: "Confluence", category: "Workflow", icon: SiConfluence, color: "#172B4D" },
+  { name: "Salesforce", category: "Workflow", icon: SiSalesforce, color: "#00A1E0" },
 ];
 
 // Get unique categories for filtering/grouping
