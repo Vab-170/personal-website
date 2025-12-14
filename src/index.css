@@ -9,42 +9,16 @@ html {
 	scroll-behavior: smooth;
 }
 
-/* Root-level variables and base styles */
+/* Root-level base styles */
 :root {
-	--accent-color: #646cff;
-	--accent-hover: #535bf2;
-	--dark-bg: #242424;
-	--light-bg: #242424;
-	--dark-text: #000000;
-	--light-text: #000000;
-
 	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-
-	color-scheme: light dark;
-	color: var(--dark-text);
-	background-color: var(--dark-bg);
-
+	color-scheme: dark;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-/* Anchor styles */
-a {
-	font-weight: 500;
-	color: var(--accent-color);
-	text-decoration: inherit;
-}
-
-a:hover {
-	color: var(--accent-hover);
-}
-
-NavItem {
-	color: var(--dark-text);
 }
 
 /* Body reset & layout */
@@ -54,11 +28,7 @@ body {
  	overflow-x: hidden;
 	min-width: 100vw;
 	min-height: 100vh;
-
-	background: linear-gradient(to right, #103458, #44aaee, #103458);
-	background-size: 110% 100%;
-	background-attachment: fixed;
-	animation: pronouncedWaveBackground 8s ease-in-out infinite;
+	background: #000;
 }
 
 /* Typography */
@@ -67,44 +37,8 @@ h1 {
 	line-height: 1.1;
 }
 
-/* Button styles */
-button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	cursor: pointer;
-	transition: border-color 0.25s;
-}
-
-button:hover {
-	border-color: var(--accent-color);
-}
-
+/* Button focus styles */
 button:focus,
 button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* Animation: background wave */
-@keyframes pronouncedWaveBackground {
-	0% {
-		background-position: 0% 50%;
-	}
-	33% {
-		background-position: 50% 50%;
-	}
-	66% {
-		background-position: 150% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-.animate-wave-bg {
-	animation: pronouncedWaveBackground 8s ease-in-out infinite;
-	background-size: 110% 100%;
-	background-attachment: fixed;
 }

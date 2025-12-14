@@ -89,7 +89,7 @@ export const projects = [
     title: "C.R.E.A.T.E. Club Website",
     description: "Designed and developed comprehensive club website serving as central hub for 100+ members and university community. Implemented modular component architecture for easy content management and future scalability.",
     tech: ["React", "TailwindCSS", "Responsive Design"],
-    link: "http://www.create.utsc.utoronto.ca/",
+    link: "https://www.create.utsc.utoronto.ca/",
     linkType: "live"
   },
   {
