@@ -12,7 +12,7 @@ import { Code2, Zap, Award, Github, Linkedin, Mail, Monitor, Code, FileCode, Bed
 export const personalInfo = {
   name: "Vaibhav Gupta",
   location: "Toronto, ON 🇨🇦",
-  roles: ["CyberSec Tinkerer", "AI Enthusiast", "Full-Stack Developer"],
+  roles: ["Cyber Security Enthusiast", "AI Tinkerer", "Full-Stack Developer"],
   tagline: "Building impactful solutions with cutting-edge technology",
   about: `I am a Computer Science student at the University of Toronto Scarborough 
     specializing in Software Engineering. I enjoy solving real world problems using 
@@ -21,7 +21,7 @@ export const personalInfo = {
     learn a better way.`,
   cvPath: "/personal-website/Vab_s_CV.pdf",
   availabilityStatus: "Available for opportunities",
-  seekingText: "Currently seeking 2026 summer internships and co-op positions",
+  seekingText: "Currently seeking 2026 summer internships and co-op positions.",
 };
 
 // ============================================
