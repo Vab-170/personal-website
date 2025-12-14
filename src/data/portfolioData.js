@@ -1,6 +1,6 @@
 import { 
   SiPython, SiReact, SiDjango, SiJavascript, SiTailwindcss, SiDocker, SiGit, SiC,
-  SiNodedotjs, SiSpringboot, SiPostgresql, SiHtml5, SiCss3,
+  SiNodedotjs, SiSpringboot, SiPostgresql, SiHtml5, SiCss3, SiMysql,
   SiPostman, SiJira, SiConfluence, SiLinux, SiGithub, SiSalesforce,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
@@ -47,15 +47,15 @@ export const stats = [
 // TECH STACK - Organized by category
 // ============================================
 export const techStack = [
-  // === Languages (by popularity) ===
-  { name: "JavaScript", category: "Languages", icon: SiJavascript, color: "#F7DF1E" },
+  // === Languages ===
+  { name: "JavaScript", category: "Languages", icon: SiJavascript, color: "#C9A227" },
   { name: "Python", category: "Languages", icon: SiPython, color: "#3776AB" },
   { name: "Java", category: "Languages", icon: FaJava, color: "#ED8B00" },
   { name: "C", category: "Languages", icon: SiC, color: "#A8B9CC" },
-  { name: "HTML", category: "Languages", icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS", category: "Languages", icon: SiCss3, color: "#1572B6" },
   
   // === Frontend ===
+  { name: "HTML", category: "Frontend", icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS", category: "Frontend", icon: SiCss3, color: "#1572B6" },
   { name: "React", category: "Frontend", icon: SiReact, color: "#61DAFB" },
   { name: "TailwindCSS", category: "Frontend", icon: SiTailwindcss, color: "#06B6D4" },
   
@@ -63,14 +63,17 @@ export const techStack = [
   { name: "Node.js", category: "Backend", icon: SiNodedotjs, color: "#339933" },
   { name: "Django", category: "Backend", icon: SiDjango, color: "#092E20" },
   { name: "Spring Boot", category: "Backend", icon: SiSpringboot, color: "#6DB33F" },
-  { name: "PostgreSQL", category: "Backend", icon: SiPostgresql, color: "#4169E1" },
+
+  // === Databases ===
+  { name: "PostgreSQL", category: "Databases", icon: SiPostgresql, color: "#4169E1" },
+  { name: "MySQL", category: "Databases", icon: SiMysql, color: "#FF6F00" },
   
   // === DevOps & Tools ===
-  { name: "Git", category: "DevOps", icon: SiGit, color: "#F05032" },
-  { name: "Docker", category: "DevOps", icon: SiDocker, color: "#2496ED" },
-  { name: "Linux", category: "DevOps", icon: SiLinux, color: "#FCC624" },
-  { name: "GitHub", category: "DevOps", icon: SiGithub, color: "#FFFFFF" },
-  { name: "Postman", category: "DevOps", icon: SiPostman, color: "#FF6C37" },
+  { name: "Git", category: "DevOps & Tools", icon: SiGit, color: "#F05032" },
+  { name: "Docker", category: "DevOps & Tools", icon: SiDocker, color: "#2496ED" },
+  { name: "Linux", category: "DevOps & Tools", icon: SiLinux, color: "#FCC624" },
+  { name: "GitHub", category: "DevOps & Tools", icon: SiGithub, color: "#FFFFFF" },
+  { name: "Postman", category: "DevOps & Tools", icon: SiPostman, color: "#FF6C37" },
   
   // === Workflow ===
   { name: "JIRA", category: "Workflow", icon: SiJira, color: "#0052CC" },

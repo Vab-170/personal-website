@@ -174,12 +174,7 @@ export const TechCard = ({ name, category, icon: Icon, color, index }) => {
       </motion.div>
 
       {/* Tech Name */}
-      <span className="text-xl font-semibold text-white mb-2">{name}</span>
-
-      {/* Category Badge */}
-      <span className="text-sm text-yellow-400 font-medium px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/30">
-        {category}
-      </span>
+      <span className="text-xl font-semibold text-white">{name}</span>
     </motion.div>
   );
 };
