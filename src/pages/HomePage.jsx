@@ -228,7 +228,7 @@ const EnhancedPortfolio = () => {
                     viewport={{ once: true }}
                 >
                     <motion.h2
-                        className="text-5xl font-bold mb-6 bg-linear-to-r from-lime-400 to-emerald-500 bg-clip-text text-transparent"
+                        className="text-5xl font-bold mb-6 bg-linear-to-r from-lime-400 to-emerald-500 bg-clip-text text-transparent pb-2"
                         variants={{
                             hidden: { opacity: 0, scale: 0.8 },
                             visible: { opacity: 1, scale: 1 },
