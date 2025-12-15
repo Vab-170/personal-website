@@ -21,13 +21,14 @@ const ProjectCard = ({ project, index }) => {
         return (
             <motion.a
                 href={project.link}
-                className="inline-flex items-center gap-2 bg-linear-to-r from-yellow-400 to-amber-500 text-zinc-900 font-bold px-5 py-2 rounded-full shadow-lg shadow-yellow-500/30"
+                className="inline-flex items-center gap-2 min-h-[44px] min-w-[44px] bg-linear-to-r from-yellow-400 to-amber-500 text-zinc-900 font-bold px-5 py-2 rounded-full shadow-lg shadow-yellow-500/30"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={isLive ? `View live site for ${project.title}` : `View source code for ${project.title}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
-                {isLive ? <ExternalLink className="w-4 h-4" /> : <Github className="w-4 h-4" />}
+                {isLive ? <ExternalLink className="w-4 h-4" aria-hidden="true" /> : <Github className="w-4 h-4" aria-hidden="true" />}
                 {isLive ? "View Live Site" : "View Code"}
             </motion.a>
         );
@@ -92,9 +93,10 @@ const ProjectsPage = () => {
                 >
                     <Link
                         to="/"
-                        className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-medium"
+                        className="inline-flex items-center gap-2 min-h-[44px] text-yellow-400 hover:text-yellow-300 transition-colors font-medium"
+                        aria-label="Go back to home page"
                     >
-                        <ArrowLeft className="w-5 h-5" />
+                        <ArrowLeft className="w-5 h-5" aria-hidden="true" />
                         Back to Home
                     </Link>
                 </motion.div>

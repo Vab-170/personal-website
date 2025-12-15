@@ -95,15 +95,16 @@ const EnhancedPortfolio = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.9 }}
                     >
-                        <Link to="/projects">
-                            <GlowButton>View Projects</GlowButton>
+                        <Link to="/projects" aria-label="View my projects">
+                            <GlowButton as="span">View Projects</GlowButton>
                         </Link>
                         <a
                             href={personalInfo.cvPath}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Download my CV (opens in new tab)"
                         >
-                            <GlowButton variant="secondary">View CV</GlowButton>
+                            <GlowButton as="span" variant="secondary">View CV</GlowButton>
                         </a>
                     </motion.div>
 
@@ -123,6 +124,7 @@ const EnhancedPortfolio = () => {
                 {/* Scroll indicator - fades out after scrolling */}
                 <motion.div
                     className="absolute bottom-10"
+                    aria-hidden="true"
                     animate={{ 
                         y: [0, 10, 0],
                         opacity: showScrollIndicator ? 1 : 0,
@@ -261,8 +263,8 @@ const EnhancedPortfolio = () => {
                             {personalInfo.availabilityStatus}
                         </span>
                     </motion.div>
-                    <a href={socialLinks.find((s) => s.label === "Email")?.href || "#"}>
-                        <GlowButton>Get In Touch</GlowButton>
+                    <a href={socialLinks.find((s) => s.label === "Email")?.href || "#"} aria-label="Send me an email">
+                        <GlowButton as="span">Get In Touch</GlowButton>
                     </a>
                 </motion.div>
             </motion.section>

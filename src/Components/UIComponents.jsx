@@ -43,16 +43,19 @@ TypeWriter.propTypes = {
 };
 
 // GlowButton Component
-export const GlowButton = ({ children, variant = "primary" }) => {
+export const GlowButton = ({ children, variant = "primary", as = "button", ariaLabel }) => {
+  const Component = as === "span" ? motion.span : motion.button;
   return (
-    <motion.button
-      className={`px-8 py-4 rounded-full font-semibold text-lg relative overflow-hidden ${
+    <Component
+      className={`px-8 py-4 min-h-11 min-w-11 rounded-full font-semibold text-lg relative overflow-hidden inline-flex items-center justify-center ${
         variant === "primary"
           ? "bg-linear-to-r from-yellow-400 to-amber-500 text-black shadow-lg shadow-yellow-500/50"
           : "bg-zinc-900 border-2 border-yellow-400 text-yellow-400"
       }`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      aria-label={ariaLabel}
+      role={as === "span" ? "presentation" : undefined}
     >
       <motion.div
         className="absolute inset-0 bg-white"
@@ -62,23 +65,26 @@ export const GlowButton = ({ children, variant = "primary" }) => {
         style={{ borderRadius: "50%" }}
       />
       <span className="relative z-10">{children}</span>
-    </motion.button>
+    </Component>
   );
 };
 
 GlowButton.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(["primary", "secondary"]),
+  as: PropTypes.oneOf(["button", "span"]),
+  ariaLabel: PropTypes.string,
 };
 
 // SocialIcon Component for HomePage
-export const HomeSocialIcon = ({ icon: Icon, href }) => {
+export const HomeSocialIcon = ({ icon: Icon, href, label }) => {
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-12 h-12 rounded-full bg-zinc-900 border-2 border-yellow-400/50 flex items-center justify-center"
+      aria-label={label}
+      className="w-12 h-12 min-w-[44px] min-h-[44px] rounded-full bg-zinc-900 border-2 border-yellow-400/50 flex items-center justify-center"
       whileHover={{
         scale: 1.2,
         borderColor: "#facc15",
@@ -86,7 +92,7 @@ export const HomeSocialIcon = ({ icon: Icon, href }) => {
       }}
       whileTap={{ scale: 0.9 }}
     >
-      <Icon className="w-6 h-6 text-yellow-400" />
+      <Icon className="w-6 h-6 text-yellow-400" aria-hidden="true" />
     </motion.a>
   );
 };
@@ -94,6 +100,7 @@ export const HomeSocialIcon = ({ icon: Icon, href }) => {
 HomeSocialIcon.propTypes = {
   icon: PropTypes.elementType.isRequired,
   href: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
 };
 
 // StatCard Component

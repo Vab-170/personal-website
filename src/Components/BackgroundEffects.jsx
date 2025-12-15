@@ -273,8 +273,15 @@ BackgroundEffects.propTypes = {
 export const PageLayout = ({ children, className = "", ...backgroundProps }) => {
   return (
     <div className={`bg-black min-h-screen text-white overflow-hidden relative ${className}`}>
+      {/* Skip to main content link for keyboard users */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-yellow-400 focus:text-black focus:rounded-md focus:font-semibold"
+      >
+        Skip to main content
+      </a>
       <BackgroundEffects {...backgroundProps} />
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         {children}
       </main>
     </div>
