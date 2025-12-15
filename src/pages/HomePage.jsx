@@ -103,7 +103,7 @@ const EnhancedPortfolio = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <GlowButton variant="secondary">Download CV</GlowButton>
+                            <GlowButton variant="secondary">View CV</GlowButton>
                         </a>
                     </motion.div>
 

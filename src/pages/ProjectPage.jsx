@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 import { PageLayout } from "../Components/BackgroundEffects";
 import { projects, personalInfo } from "../data/portfolioData";
 
@@ -82,6 +83,22 @@ const ProjectsPage = () => {
     return (
         <PageLayout showParticles={false}>
             <div className="py-20 px-6">
+                {/* Back Button */}
+                <motion.div
+                    className="max-w-7xl mx-auto mb-8"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4 }}
+                >
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-medium"
+                    >
+                        <ArrowLeft className="w-5 h-5" />
+                        Back to Home
+                    </Link>
+                </motion.div>
+
                 <motion.h2
                     className="text-5xl font-bold text-center mb-16 bg-linear-to-r from-yellow-300 to-amber-500 bg-clip-text text-transparent"
                     initial={{ opacity: 0, y: -30 }}
