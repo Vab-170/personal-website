@@ -274,7 +274,9 @@ export const PageLayout = ({ children, className = "", ...backgroundProps }) => 
   return (
     <div className={`bg-black min-h-screen text-white overflow-hidden relative ${className}`}>
       <BackgroundEffects {...backgroundProps} />
-      {children}
+      <main className="relative z-10">
+        {children}
+      </main>
     </div>
   );
 };

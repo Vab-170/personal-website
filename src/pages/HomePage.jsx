@@ -115,7 +115,7 @@ const EnhancedPortfolio = () => {
                         transition={{ delay: 1.1 }}
                     >
                         {socialLinks.map((social, idx) => (
-                            <HomeSocialIcon key={idx} icon={social.icon} href={social.href} />
+                            <HomeSocialIcon key={idx} icon={social.icon} href={social.href} label={social.label} />
                         ))}
                     </motion.div>
                 </motion.div>

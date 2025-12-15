@@ -150,7 +150,7 @@ StatCard.propTypes = {
 };
 
 // TechCard Component
-export const TechCard = ({ name, category, icon: Icon, color, index }) => {
+export const TechCard = ({ name, icon: Icon, color, index }) => {
   return (
     <motion.div
       className="bg-zinc-900/60 backdrop-blur-sm rounded-xl p-6 border border-yellow-500/30 shadow-lg shadow-yellow-500/10 flex flex-col items-center w-40"
