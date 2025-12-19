@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // Cloudflare Pages serves from root
-  base: '/',
+  // GitHub Pages serves from /personal-website/
+  base: '/personal-website/',
   plugins: [
     react(),
     tailwindcss(),

@@ -35,7 +35,7 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 - **Icons**: React Icons, Lucide React
 - **Build Tool**: Vite 6.x
 - **Code Quality**: ESLint
-- **Deployment**: Cloudflare Pages (automated)
+- **Deployment**: GitHub Pages (automated via GitHub Actions)
 
 ## 🏃‍♂️ Quick Start
 
@@ -74,29 +74,33 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 - `npm run lint` - Run ESLint for code quality checks
 - `npm run lint:fix` - Automatically fix ESLint issues
 
+
 ## 🚀 Deployment
 
-### Cloudflare Pages (Automated)
+### GitHub Pages (Automated)
 
-The project uses **Cloudflare Pages** for automatic deployment. Every push to the `main` branch automatically triggers a build and deployment.
+The project uses **GitHub Pages** for automatic deployment. Every push to the `main` branch automatically triggers a build and deployment using GitHub Actions.
 
 **How it works:**
-- ✅ **Push to main branch** → Automatic deployment
+- ✅ **Push to main branch** → Automatic deployment to GitHub Pages
 - ✅ **No manual commands** needed
 - ✅ **Build errors** are caught automatically
 - ✅ **Always up-to-date** with your latest code
 - ✅ **Global CDN** with edge caching
-- ✅ **Custom security headers** via `_headers` file
 
 **Build Settings:**
 - **Framework**: Vite
 - **Build command**: `npm run build`
 - **Output directory**: `dist`
 
-**Note:** If you fork this repository, you'll need to:
-1. Create a Cloudflare Pages project
-2. Connect your GitHub repository
-3. Configure build settings as above
+**GitHub Actions Workflow:**
+1. A workflow file (e.g., `.github/workflows/deploy.yml`) is used to build and deploy the site to the `gh-pages` branch.
+2. GitHub Pages is configured to serve from the `/gh-pages` branch (or `/docs` folder if preferred).
+
+**To set up:**
+1. Fork or clone this repository.
+2. Ensure your repository's Settings > Pages is set to deploy from the `gh-pages` branch.
+3. The workflow will handle deployment automatically on push to `main`.
 
 ### Development Workflow
 
@@ -121,7 +125,7 @@ personal-website/
 ├── public/
 │   ├── Vab_s_CV.pdf
 │   ├── 404.html
-│   └── _headers          # Cloudflare security headers
+│   └── _headers          # (Optional, not used for GitHub Pages)
 ├── src/
 │   ├── assets/
 │   │   └── profile.jpeg
@@ -194,9 +198,9 @@ The website uses a custom gradient theme with:
    ```
 
 2. **Deployment Issues**
-   - Check Cloudflare Pages dashboard for build logs
+   - Check GitHub Actions workflow logs for build errors
    - Ensure all assets are in the `public` directory
-   - Verify `vite.config.js` has `base: '/'`
+   - Verify `vite.config.js` has the correct `base` for GitHub Pages (e.g., `/your-repo-name/`)
 
 3. **Development Server Issues**
    ```bash
@@ -205,9 +209,9 @@ The website uses a custom gradient theme with:
    ```
 
 4. **Security Headers Not Working**
-   - Ensure `public/_headers` file exists
-   - Check Cloudflare Pages deployment logs
-   - Headers only work in production (not local dev)
+   - GitHub Pages does not support custom HTTP headers like Cloudflare Pages
+   - Security headers must be set at the CDN or reverse proxy level if needed
+   - Analytics and privacy remain supported via Cloudflare Web Analytics (see index.html)
 
 ## 🤝 Contributing
 

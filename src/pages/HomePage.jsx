@@ -102,7 +102,7 @@ const EnhancedPortfolio = () => {
                             href={personalInfo.cvPath}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Download my CV (opens in new tab)"
+                            aria-label="View my CV (opens in new tab)"
                         >
                             <GlowButton as="span" variant="secondary">View CV</GlowButton>
                         </a>
@@ -272,7 +272,8 @@ const EnhancedPortfolio = () => {
             {/* Footer */}
             <footer className="relative py-8 px-6 border-t border-yellow-500/50 backdrop-blur-sm">
                 <p className="text-center text-gray-400">
-                    © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+                    © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.<br />
+                    <span className="block mt-2 text-xs text-gray-500">This site uses privacy-preserving analytics (no cookies, no tracking).</span>
                 </p>
             </footer>
         </PageLayout>
