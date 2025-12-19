@@ -4,7 +4,10 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 
 ## 🚀 Live Demo
 
-[View Live Website](https://vabgupta.pages.dev)
+Your portfolio is deployed to both GitHub Pages and Cloudflare Pages. You can use either link:
+
+- [GitHub Pages Live Site](https://vab-170.github.io/personal-website/)
+- [Cloudflare Pages Live Site](https://vabgupta.pages.dev)
 
 ## 📋 Features
 
@@ -35,7 +38,7 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 - **Icons**: React Icons, Lucide React
 - **Build Tool**: Vite 6.x
 - **Code Quality**: ESLint
-- **Deployment**: GitHub Pages (automated via GitHub Actions)
+- **Deployment**: GitHub Pages (automated via GitHub Actions) and Cloudflare Pages (optional)
 
 ## 🏃‍♂️ Quick Start
 
@@ -75,11 +78,12 @@ A modern, responsive portfolio website built with React, Vite, and TailwindCSS, 
 - `npm run lint:fix` - Automatically fix ESLint issues
 
 
+
 ## 🚀 Deployment
 
 ### GitHub Pages (Automated)
 
-The project uses **GitHub Pages** for automatic deployment. Every push to the `main` branch automatically triggers a build and deployment using GitHub Actions.
+Every push to the `main` branch automatically triggers a build and deployment to GitHub Pages using GitHub Actions.
 
 **How it works:**
 - ✅ **Push to main branch** → Automatic deployment to GitHub Pages
@@ -101,6 +105,20 @@ The project uses **GitHub Pages** for automatic deployment. Every push to the `m
 1. Fork or clone this repository.
 2. Ensure your repository's Settings > Pages is set to deploy from the `gh-pages` branch.
 3. The workflow will handle deployment automatically on push to `main`.
+
+### Cloudflare Pages (Optional)
+
+You can also deploy this site to Cloudflare Pages for an additional live URL. To enable:
+
+1. Go to the Cloudflare Pages dashboard and create a new project.
+2. Connect your GitHub repository.
+3. Use the following build settings:
+   - **Framework**: Vite
+   - **Build command**: `npm run build`
+   - **Output directory**: `dist`
+4. Deploy. Your site will be available at `https://<your-project>.pages.dev`.
+
+You can keep both deployments active and share either link.
 
 ### Development Workflow
 

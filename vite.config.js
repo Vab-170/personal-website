@@ -2,9 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+// Use VITE_BASE env variable if set, otherwise default to GitHub Pages base
+const base = process.env.VITE_BASE || '/personal-website/';
+
 export default defineConfig({
-  // GitHub Pages serves from /personal-website/
-  base: '/personal-website/',
+  base,
   plugins: [
     react(),
     tailwindcss(),
