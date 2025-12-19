@@ -19,7 +19,7 @@ export const personalInfo = {
     AI, full stack development, and scalable systems. I focus on building tools that 
     are practical, clean, and future facing, and I am always improving them once I 
     learn a better way.`,
-  cvPath: "/personal-website/Vaibhav_Gupta_CV.pdf",
+  cvPath: "/Vaibhav_Gupta_CV.pdf",
   availabilityStatus: "Available for opportunities",
   seekingText: "Currently seeking 2026 summer internships and co-op positions.",
 };
