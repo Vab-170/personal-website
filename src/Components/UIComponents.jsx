@@ -84,7 +84,7 @@ export const HomeSocialIcon = ({ icon: Icon, href, label }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-12 h-12 min-w-[44px] min-h-[44px] rounded-full bg-zinc-900 border-2 border-yellow-400/50 flex items-center justify-center"
+      className="w-12 h-12 min-w-11 min-h-11 rounded-full bg-zinc-900 border-2 border-yellow-400/50 flex items-center justify-center"
       whileHover={{
         scale: 1.2,
         borderColor: "#facc15",
