@@ -2,11 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <!-- CSP is handled by Cloudflare _headers file in production -->
-    <!-- Dev server needs relaxed CSP for hot reload -->
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vab Portfolio</title>
+    <title>Vaibhav Gupta Portfolio</title>
 
     <meta name="description" content="Portfolio of Vaibhav Gupta - Full-Stack Developer & Software Engineer. Explore a comprehensive showcase of projects, skills, and experience in software development, including web, cloud, and open-source contributions. Connect and discover more about my journey, expertise, and achievements in the tech industry.">
     <meta property="og:title" content="Vaibhav Gupta Portfolio" />
@@ -24,6 +22,20 @@
       body { background: #000; margin: 0; }
       #root { min-height: 100vh; }
     </style>
+
+    <!-- GitHub Pages SPA redirect handler -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </head>
   <body>
     <div id="root"></div>
