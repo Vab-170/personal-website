@@ -44,7 +44,7 @@ jobs:
           NODE_ENV: production
       - name: Copy SPA fallback files
         run: |
-          cp dist/index.html dist/404.html
+          cp public/404.html dist/404.html
           cp public/_redirects dist/_redirects
         
       - name: Setup Pages
