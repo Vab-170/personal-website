@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 import { TypeWriter, GlowButton, HomeSocialIcon, StatCard, TechCard } from "../Components/UIComponents";
 import { PageLayout } from "../Components/BackgroundEffects";
 import { techStack, stats, personalInfo, socialLinks, techCategories } from "../data/portfolioData";
-import ProfileImage from "../assets/profile.jpeg";
 
+const ProfileImage = `${import.meta.env.BASE_URL}Profile.jpeg`;
 const EnhancedPortfolio = () => {
   const { scrollYProgress } = useScroll();
   const [showScrollIndicator, setShowScrollIndicator] = React.useState(true);

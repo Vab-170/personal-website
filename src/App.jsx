@@ -5,11 +5,9 @@ import './App.css';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProjectPage = lazy(() => import('./pages/ProjectPage'));
 
-export const getBasePrefix = () =>
-  window.location.pathname.startsWith('/personal-website') ? '/personal-website' : '';
-
 function App() {
-  const basename = getBasePrefix();
+  // Use Vite's built-in BASE_URL which matches vite.config.js base
+  const basename = import.meta.env.BASE_URL;
 
   return (
     <div className="App">
