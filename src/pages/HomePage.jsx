@@ -10,11 +10,6 @@ import ProfileImage from "../assets/profile.jpeg";
 const EnhancedPortfolio = () => {
   const { scrollYProgress } = useScroll();
   const [showScrollIndicator, setShowScrollIndicator] = React.useState(true);
-  const basePrefix = window.location.pathname.startsWith("/personal-website")
-  ? "/personal-website"
-  : "";
-
-  const cvUrl = `${basePrefix}/${personalInfo.cvPath}`;
 
   // Hide scroll indicator after user scrolls
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -104,7 +99,7 @@ const EnhancedPortfolio = () => {
                             <GlowButton as="span">View Projects</GlowButton>
                         </Link>
                         <a
-                            href={cvUrl}
+                            href={personalInfo.cvPath}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="View my CV (opens in new tab)"

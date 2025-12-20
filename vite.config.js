@@ -7,9 +7,9 @@ import tailwindcss from '@tailwindcss/vite'
 // - GitHub Pages at /personal-website/
 // Use relative base for production so assets resolve no matter what subpath you deploy under.
 export default defineConfig(({ mode }) => {
-  const base =
-    process.env.VITE_BASE ??
-    (mode === 'development' ? '/' : './')
+  // GitHub Pages needs absolute subpath, Cloudflare needs root
+  const base = process.env.VITE_BASE ?? 
+    (mode === 'development' ? '/' : '/personal-website/')
 
   return {
     base,
