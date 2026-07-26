@@ -102,7 +102,7 @@ const EnhancedPortfolio = () => {
                             href={personalInfo.cvPath}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="View my CV (opens in new tab)"
+                            aria-label="View my Resume (opens in new tab)"
                         >
                             <GlowButton as="span" variant="secondary">View Resume</GlowButton>
                         </a>
