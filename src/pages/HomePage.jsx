@@ -104,7 +104,7 @@ const EnhancedPortfolio = () => {
                             rel="noopener noreferrer"
                             aria-label="View my CV (opens in new tab)"
                         >
-                            <GlowButton as="span" variant="secondary">View CV</GlowButton>
+                            <GlowButton as="span" variant="secondary">View Resume</GlowButton>
                         </a>
                     </motion.div>
 
